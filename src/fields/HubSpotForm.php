@@ -11,7 +11,7 @@ use craft\helpers\Json;
 use robuust\hubspotforms\Plugin;
 
 /**
- * HubSpot Forms Field.
+ * HubSpot Form Field.
  *
  * @author    Bob Olde Hampsink <bob@robuust.digital>
  * @copyright Copyright (c) 2024, Robuust
@@ -19,7 +19,7 @@ use robuust\hubspotforms\Plugin;
  *
  * @see       https://robuust.digital
  */
-class HubSpotForms extends Dropdown
+class HubSpotForm extends Dropdown
 {
     /**
      * @var Plugin;
@@ -31,7 +31,7 @@ class HubSpotForms extends Dropdown
      */
     public static function displayName(): string
     {
-        return Craft::t('app', 'HubSpot Forms');
+        return Craft::t('app', 'HubSpot Form');
     }
 
     /**
