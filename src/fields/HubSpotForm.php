@@ -8,7 +8,7 @@ use craft\base\Field;
 use craft\enums\AttributeStatus;
 use craft\fields\Dropdown;
 use craft\helpers\Json;
-use robuust\hubspotforms\Plugin;
+use robuust\hubspotforms\Plugin as HubSpotForms;
 
 /**
  * HubSpot Form Field.
@@ -21,11 +21,6 @@ use robuust\hubspotforms\Plugin;
  */
 class HubSpotForm extends Dropdown
 {
-    /**
-     * @var Plugin;
-     */
-    public $plugin;
-
     /**
      * {@inheritdoc}
      */
@@ -41,13 +36,11 @@ class HubSpotForm extends Dropdown
     {
         parent::init();
 
-        $this->plugin = Plugin::getInstance();
-
         // Get all lists
         $results = Craft::$app->getCache()->getOrSet('hubspotForms', function () {
             try {
                 // Use apiRequest instead of forms API as workaround: https://github.com/HubSpot/hubspot-api-php/issues/294
-                $request = $this->plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms']);
+                $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms']);
                 $response = Json::decode((string) $request->getBody());
                 $results = $response['results'];
             } catch (\Exception) {
@@ -96,7 +89,7 @@ class HubSpotForm extends Dropdown
 
         return Craft::$app->getCache()->getOrSet('hubspotForm:'.$form, function () use ($form) {
             // Use apiRequest instead of forms API as workaround: https://github.com/HubSpot/hubspot-api-php/issues/294
-            $request = $this->plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms/'.$form]);
+            $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms/'.$form]);
 
             return Json::decode((string) $request->getBody());
         });

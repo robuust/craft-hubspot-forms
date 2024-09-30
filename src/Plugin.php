@@ -17,11 +17,17 @@ use yii\base\Event;
 class Plugin extends BasePlugin
 {
     /**
+     * @var ?Plugin
+     */
+    public static ?Plugin $plugin;
+
+    /**
      * Initializes the plugin.
      */
     public function init()
     {
         parent::init();
+        self::$plugin = $this;
 
         // Register hubspot client
         if ($this->settings->accessToken) {
