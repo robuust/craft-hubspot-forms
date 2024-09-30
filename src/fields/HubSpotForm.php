@@ -76,7 +76,7 @@ class HubSpotForm extends Dropdown
         /** @var SingleOptionFieldData $value */
         $value = $element->getFieldValue($this->handle);
 
-        if (!isset($value[0]) || !$value[0]['valid'] && $this->defaultValue() !== null) {
+        if (!isset($value['id']) || !$value['id'] && $this->defaultValue() !== null) {
             return [
                 AttributeStatus::Modified,
                 Craft::t('app', 'This field has been modified.'),
