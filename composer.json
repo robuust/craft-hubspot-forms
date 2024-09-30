@@ -1,0 +1,37 @@
+{
+    "version": "1.0.0",
+    "name": "robuust/craft-hubspot-forms",
+    "description": "Hubspot Forms for Craft 5",
+    "type": "craft-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bob Olde Hampsink",
+            "email": "bob@robuust.digital"
+        }
+    ],
+    "extra": {
+        "handle": "hubspot-forms",
+        "name": "Hubspot Forms",
+        "developer": "Robuust",
+        "developerUrl": "https://robuust.digital",
+        "hasCpSettings": false,
+        "hasCpSection": false
+    },
+    "require": {
+        "php": "^8.0",
+        "craftcms/cms": "^5.0",
+        "hubspot/api-client": "^11.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "robuust\\hubspotforms\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
+}
