@@ -37,20 +37,14 @@ class HubSpotForm extends Dropdown
         parent::init();
 
         // Get all lists
-        $results = Craft::$app->getCache()->getOrSet('hubspotForms', function () {
-            try {
-                // Use apiRequest instead of forms API as workaround: https://github.com/HubSpot/hubspot-api-php/issues/294
-                $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms']);
-                $response = Json::decode((string) $request->getBody());
-
-                return $response['results'];
-            } catch (\Exception) {
-                return false;
-            }
-        });
-
-        // Set as empty array if no results
-        $results ??= [];
+        try {
+            // Use apiRequest instead of forms API as workaround: https://github.com/HubSpot/hubspot-api-php/issues/294
+            $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms']);
+            $response = Json::decode((string) $request->getBody());
+            $results = $response['results'];
+        } catch (\Exception) {
+            $results = [];
+        }
 
         // Set as dropdown options
         foreach ($results as $result) {
