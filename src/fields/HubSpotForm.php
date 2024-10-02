@@ -49,6 +49,9 @@ class HubSpotForm extends Dropdown
             }
         });
 
+        // Set as empty array if no results
+        $results ??= [];
+
         // Set as dropdown options
         foreach ($results as $result) {
             $this->options[] = [
