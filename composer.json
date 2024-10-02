@@ -15,7 +15,7 @@
         "name": "HubSpot Forms",
         "developer": "Robuust",
         "developerUrl": "https://robuust.digital",
-        "hasCpSettings": true,
+        "hasCpSettings": false,
         "hasCpSection": false
     },
     "require": {
