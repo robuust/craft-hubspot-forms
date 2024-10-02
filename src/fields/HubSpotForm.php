@@ -42,12 +42,11 @@ class HubSpotForm extends Dropdown
                 // Use apiRequest instead of forms API as workaround: https://github.com/HubSpot/hubspot-api-php/issues/294
                 $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms']);
                 $response = Json::decode((string) $request->getBody());
-                $results = $response['results'];
-            } catch (\Exception) {
-                $results = [];
-            }
 
-            return $results;
+                return $response['results'];
+            } catch (\Exception) {
+                return false;
+            }
         });
 
         // Set as dropdown options
