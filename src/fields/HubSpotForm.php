@@ -145,9 +145,9 @@ class HubSpotForm extends Dropdown
      *
      * @param mixed $form
      *
-     * @return string
+     * @return string|null
      */
-    protected function getFormFieldId(mixed $form): string
+    protected function getFormFieldId(mixed $form): ?string
     {
         if (is_array($form) && isset($form['id'])) {
             $form = $form['id'];
