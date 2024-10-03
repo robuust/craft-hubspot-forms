@@ -83,6 +83,11 @@ class HubSpotForm extends Dropdown
         // Get form id
         $form = (string) parent::normalizeValue($this->getFormFieldId($value), $element);
 
+        // Don't fetch form if empty
+        if (empty($form)) {
+            return $value;
+        }
+
         return Craft::$app->getCache()->getOrSet('hubspotForm:'.$form, function () use ($form) {
             // Use apiRequest instead of forms API as workaround: https://github.com/HubSpot/hubspot-api-php/issues/294
             $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms/'.$form]);
