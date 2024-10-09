@@ -12,7 +12,7 @@ use robuust\hubspotforms\models\Settings;
 use yii\base\Event;
 
 /**
- * HubSpot Forms plugin.
+ * HubSpot API Forms plugin.
  */
 class Plugin extends BasePlugin
 {

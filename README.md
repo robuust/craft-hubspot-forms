@@ -1,7 +1,7 @@
-HubSpot Forms plugin for Craft
+HubSpot API Forms plugin for Craft
 =================
 
-Plugin that allows you to display HubSpot forms
+Plugin that allows you to render HubSpot forms from their API
 
 ## Requirements
 
@@ -19,11 +19,11 @@ To install the plugin, follow these instructions.
 
         composer require robuust/craft-hubspot-forms
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for HubSpot Forms.
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for HubSpot API Forms.
 
 ## Config
 
-Create a file called `hubspot-forms.php` in you Craft config folder with the following contents:
+Create a file called `hubspot-api-forms.php` in you Craft config folder with the following contents:
 
 ```php
 <?php
@@ -37,7 +37,7 @@ return [
 
 ## Usage
 
-Create a new "HubSpot Forms" field and add it to the desired element's field layout.
+Create a new "HubSpot Form" field and add it to the desired element's field layout.
 Now when editing such element you can select a HubSpot form to use.
 
 In your front-end templates you can render this as a form.

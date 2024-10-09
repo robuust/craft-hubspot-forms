@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "name": "robuust/craft-hubspot-forms",
-    "description": "HubSpot Forms for Craft 5",
+    "description": "HubSpot API Forms for Craft 5",
     "type": "craft-plugin",
     "license": "MIT",
     "authors": [
@@ -11,8 +11,8 @@
         }
     ],
     "extra": {
-        "handle": "hubspot-forms",
-        "name": "HubSpot Forms",
+        "handle": "hubspot-api-forms",
+        "name": "HubSpot API Forms",
         "developer": "Robuust",
         "developerUrl": "https://robuust.digital",
         "hasCpSettings": false,
