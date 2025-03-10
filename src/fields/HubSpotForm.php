@@ -120,6 +120,18 @@ class HubSpotForm extends Dropdown
     /**
      * {@inheritdoc}
      */
+    public function isValueEmpty(mixed $value, ElementInterface $element): bool
+    {
+        if (is_array($value)) {
+            return count($value) === 0;
+        }
+
+        return $value === null || $value === '';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function inputHtml(mixed $value, ?ElementInterface $element, bool $inline): string
     {
         /** @var SingleOptionFieldData $value */
