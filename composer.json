@@ -1,6 +1,6 @@
 {
     "version": "1.0.1",
-    "name": "robuust/craft-hubspot-forms",
+    "name": "jpwdesigns/craft-hubspot-forms",
     "description": "HubSpot API Forms for Craft 5",
     "type": "craft-plugin",
     "license": "MIT",
