@@ -1,7 +1,7 @@
 {
     "version": "1.0.1",
-    "name": "robuust/craft-hubspot-forms",
-    "description": "HubSpot API Forms for Craft 5",
+    "name": "jpwdesigns/craft-hubspot-forms",
+    "description": "HubSpot API Forms for Craft 5 - Forked and added increased limit to forms dropdown",
     "type": "craft-plugin",
     "license": "MIT",
     "authors": [
