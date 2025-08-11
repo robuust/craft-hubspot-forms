@@ -59,6 +59,11 @@ class HubSpotForm extends Dropdown
                 'label' => $result['name'],
             ];
         }
+
+        // Sort options alphabetically by label
+        usort($this->options, function($a, $b) {
+            return strcasecmp($a['label'], $b['label']);
+        });
     }
 
     /**
