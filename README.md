@@ -31,6 +31,9 @@ Create a file called `hubspot-api-forms.php` in you Craft config folder with the
 return [
     // General
     'accessToken' => 'YOUR_ACCESS_TOKEN',
+    
+    // Optional: Set the maximum number of forms to fetch from HubSpot API (default: 150)
+    'limit' => 150,
 ];
 
 ```

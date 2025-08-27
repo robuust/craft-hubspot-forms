@@ -41,7 +41,8 @@ class HubSpotForm extends Dropdown
         if ($results === false) {
             try {
                 // Use apiRequest instead of forms API as workaround: https://github.com/HubSpot/hubspot-api-php/issues/294
-                $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms']);
+                $limit = HubSpotForms::$plugin->settings->limit ?? 150;
+                $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms?limit=' . $limit]);
                 $response = Json::decode((string) $request->getBody());
                 $results = $response['results'];
 
@@ -58,6 +59,11 @@ class HubSpotForm extends Dropdown
                 'label' => $result['name'],
             ];
         }
+
+        // Sort options alphabetically by label
+        usort($this->options, function($a, $b) {
+            return strcasecmp($a['label'], $b['label']);
+        });
     }
 
     /**
