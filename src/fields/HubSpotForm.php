@@ -93,12 +93,7 @@ class HubSpotForm extends Dropdown
             return $value;
         }
 
-        return Craft::$app->getCache()->getOrSet('hubspotForm:'.$form, function () use ($form) {
-            // Use apiRequest instead of forms API as workaround: https://github.com/HubSpot/hubspot-api-php/issues/294
-            $request = HubSpotForms::$plugin->hubspot->apiRequest(['path' => '/marketing/v3/forms/'.$form]);
-
-            return Json::decode((string) $request->getBody());
-        });
+        return HubSpotForms::$plugin->getForms()->getForm($form, true);
     }
 
     /**

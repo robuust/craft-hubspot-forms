@@ -9,6 +9,7 @@ use craft\services\Fields;
 use HubSpot\Factory;
 use robuust\hubspotforms\fields\HubSpotForm as HubSpotFormField;
 use robuust\hubspotforms\models\Settings;
+use robuust\hubspotforms\services\Forms;
 use yii\base\Event;
 
 /**
@@ -29,6 +30,8 @@ class Plugin extends BasePlugin
         parent::init();
         self::$plugin = $this;
 
+        $this->set('forms', Forms::class);
+
         // Register hubspot client
         if ($this->settings->accessToken) {
             $this->set('hubspot', Factory::createWithAccessToken($this->settings->accessToken, Craft::createGuzzleClient()));
@@ -38,6 +41,16 @@ class Plugin extends BasePlugin
         Event::on(Fields::class, Fields::EVENT_REGISTER_FIELD_TYPES, function (RegisterComponentTypesEvent $event) {
             $event->types[] = HubSpotFormField::class;
         });
+    }
+
+    /**
+     * Get the form definition and submission service.
+     *
+     * @return Forms
+     */
+    public function getForms(): Forms
+    {
+        return $this->get('forms');
     }
 
     /**
